@@ -56,7 +56,7 @@ public class PlayerControls : MonoBehaviour
                 {
                     portal1.position = hit.point;
                     portal1.transform.rotation = Quaternion.FromToRotation(transform.forward, hit.normal * -1);
-                    portal1.transform.rotation = Quaternion.FromToRotation(transform.up, transform.up * -1);
+                    portal1.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
                 }
             }
         }
@@ -70,8 +70,7 @@ public class PlayerControls : MonoBehaviour
                 {
                     portal2.position = hit.point;
                     portal2.transform.rotation = Quaternion.FromToRotation(transform.forward, hit.normal * -1);
-                    portal2.transform.rotation = Quaternion.FromToRotation(transform.up, transform.up * -1);
-                    //portal2.transform.forward = transform.Translate(transform.forward, 10);
+                    portal2.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
                 }
             }
         }
@@ -87,6 +86,14 @@ public class PlayerControls : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
+        }
+        else if (collision.gameObject.tag == "Poison")
+        {
+            GameManager.instance.lives -= 3;
+            if (GameManager.instance.lives == 0)
+            {
+                SceneManager.LoadScene(1);
+            }
         }
     }
 

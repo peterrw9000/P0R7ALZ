@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Ammo
   - Wall
+  - Poison
   layers:
   - Default
   - TransparentFX
