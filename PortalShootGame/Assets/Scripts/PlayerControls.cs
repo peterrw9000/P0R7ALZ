@@ -56,7 +56,8 @@ public class PlayerControls : MonoBehaviour
                 {
                     portal1.position = hit.point;
                     portal1.transform.rotation = Quaternion.FromToRotation(transform.forward, hit.normal * -1);
-                    portal1.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                    //portal1.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                    portal1.transform.Rotate(0, 0, 180);
                 }
             }
         }
@@ -70,7 +71,8 @@ public class PlayerControls : MonoBehaviour
                 {
                     portal2.position = hit.point;
                     portal2.transform.rotation = Quaternion.FromToRotation(transform.forward, hit.normal * -1);
-                    portal2.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                    //portal2.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                    portal2.transform.Rotate(0, 0, 180);
                 }
             }
         }
